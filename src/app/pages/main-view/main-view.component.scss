@@ -1,0 +1,110 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.app-name {
+    font-size: 2.8rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.has-gradient-text {
+    background: -webkit-linear-gradient(#5dfebb, #018394);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-width: 0;
+    min-height: 0;
+
+    .board-bar {
+        background-color: rgba(gray, .5);
+        padding: .8rem 1.5rem;
+
+        .board-name {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+    }
+
+    .board-wrapper {
+        display: flex;
+        flex-grow: 1;
+        overflow-x: auto;
+
+        .board-columns {
+            display: flex;
+            flex-grow: 1;
+
+            .board-column {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                min-width: 25rem;
+                margin: 2rem;
+                padding: 1rem;
+                border-radius: .2rem;
+                background: rgba(white, .5);
+
+                &:not(:first-child) {
+                    margin-left: 0;
+                }
+
+                .column-title {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    font-family: 'Lato', sans-serif;
+                    text-transform: uppercase;
+                    margin-bottom: 2rem;
+                }
+
+                .tasks-container {
+                    flex-grow: 1;
+                }
+
+                .task {
+                    display: flex;
+                    padding: 1rem;
+                    background-color: white;
+                    border-bottom: solid .15rem #ddd;
+                    border-radius: .2rem;
+                    margin-bottom: 1rem;
+
+                    box-shadow: 0 1px 3px 3px rgba(0, 0, 0, .1), 0 3px 5px 2px rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+    }
+}
+
+.cdk-drag-preview {
+    padding: 1rem;
+    background-color: white;
+    border-bottom: solid .15rem #ddd;
+    border-radius: .2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+  
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.tasks-container.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
